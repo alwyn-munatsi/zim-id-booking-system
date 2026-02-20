@@ -1,0 +1,55 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: notification-service
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+  # Email Configuration (Gmail)
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: munatsialwyn96@gmail.com
+    password: '@Alwyn1995'
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+# SMS Configuration (Africa's Talking)
+sms:
+  africastalking:
+    enabled: true  # Set to true when you have API credentials
+    username: sandbox  # Your Africa's Talking username
+    api-key: "atsk_c50041bd682a0594a0789e069f8875b04131d5c17eee1a7e5b568a63de37160cd7299b4b"  # Your Africa's Talking API key
+
+logging:
+  level:
+    zw.gov.rg.notification: DEBUG
+    org.springframework.amqp: DEBUG

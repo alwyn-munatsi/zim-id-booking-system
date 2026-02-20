@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1B5E20, #4CAF50);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .content {
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>❌ Booking Cancelled</h1>
+</div>
+<div class="content">
+    <p>Dear <strong th:text="${fullName}">Name</strong>,</p>
+    <p>Your booking <strong th:text="${bookingReference}">REF</strong> has been cancelled.</p>
+    <p><strong>Office:</strong> <span th:text="${provinceName}">Province</span></p>
+    <p><strong>Original Date:</strong> <span th:text="${appointmentDate}">Date</span></p>
+    <p>You can book a new appointment anytime through our online system.</p>
+</div>
+</body>
+</html>

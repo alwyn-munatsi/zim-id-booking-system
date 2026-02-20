@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, #1B5E20, #4CAF50);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+        .content {
+            background: #fff;
+            padding: 30px;
+            border: 1px solid #e0e0e0;
+            border-top: none;
+        }
+        .booking-ref {
+            background: #E8F5E9;
+            padding: 15px;
+            border-left: 4px solid #1B5E20;
+            margin: 20px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .detail-row {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .detail-label {
+            font-weight: bold;
+            color: #666;
+            display: inline-block;
+            width: 150px;
+        }
+        .footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+            border-radius: 0 0 8px 8px;
+        }
+        .btn {
+            display: inline-block;
+            background: #1B5E20;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .warning-box {
+            background: #FFF8E1;
+            border-left: 4px solid #F9A825;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>🇿🇼 Booking Confirmed!</h1>
+    <p>Registrar General - Republic of Zimbabwe</p>
+</div>
+
+<div class="content">
+    <p>Dear <strong th:text="${fullName}">Name</strong>,</p>
+
+    <p>Your National ID appointment has been confirmed. Please save this confirmation for your records.</p>
+
+    <div class="booking-ref">
+        Booking Reference: <span th:text="${bookingReference}">ZW-2024-XXXX</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Office:</span>
+        <span th:text="${provinceName}">Harare</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Service:</span>
+        <span th:text="${serviceName}">New National ID</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Date:</span>
+        <span th:text="${appointmentDate}">20 December 2024</span>
+    </div>
+
+    <div class="detail-row">
+        <span class="detail-label">Time:</span>
+        <span th:text="${appointmentTime}">09:00 AM</span>
+    </div>
+
+    <div class="warning-box">
+        <strong>⚠️ Important Reminders:</strong>
+        <ul>
+            <li>Arrive <strong>15 minutes before</strong> your appointment time</li>
+            <li>Bring <strong>ALL required documents</strong> (originals + copies)</li>
+            <li>Payment will be made at the office on the day</li>
+            <li>Bring this confirmation (printed or on your phone)</li>
+        </ul>
+    </div>
+
+    <p>If you need to cancel or reschedule, please do so at least 24 hours in advance.</p>
+
+    <p>Thank you for using our online booking system.</p>
+</div>
+
+<div class="footer">
+    <p><strong>Registrar General's Office</strong></p>
+    <p>Government of Zimbabwe</p>
+    <p>This is an automated message, please do not reply to this email.</p>
+</div>
+</body>
+</html>
