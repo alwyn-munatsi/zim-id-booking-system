@@ -1,0 +1,53 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ussd-service
+  
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  
+  data:
+    redis:
+      host: localhost
+      timeout: 60000
+      port: 6379
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${random.value}
+
+# Feign Configuration
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+# USSD Configuration
+ussd:
+  shortcode: "*384*7001#"
+
+logging:
+  level:
+    zw.gov.rg.ussd: DEBUG
+    org.springframework.cloud.openfeign: DEBUG
